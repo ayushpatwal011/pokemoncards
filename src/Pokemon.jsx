@@ -54,7 +54,7 @@ const Pokemon = () => {
   if (loading) {
     return (
       <div className="w-full h-screen flex justify-center items-center bg-gray-200">
-        <h1 className="text-black font-extrabold text-5xl">Loading...</h1>
+        <h1 className="text-black font-extrabold text-lg md:text-5xl">Loading...</h1>
       </div>
     );
   } else {
@@ -99,7 +99,7 @@ const Pokemon = () => {
           </nav>
 
           <div className="w-full h-full ">
-            <ul className=" pt-10 px-10 flex flex-wrap justify-center gap-6 bg-gray-100">
+            <ul className=" pt-4 px-2 md:pt-10 md:px-10 flex flex-wrap justify-center gap-4 md:gap-6 bg-gray-100">
               {searchData.map((poke, i) => {
                 return <PokemonCard key={i} poke={poke} />;
               })}
