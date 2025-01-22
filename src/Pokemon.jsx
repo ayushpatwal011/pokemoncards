@@ -38,7 +38,7 @@ const Pokemon = () => {
   const searchData = pokemon.filter((poke) => {
     const name = poke.name.toLowerCase();
     const searchLower = search.toLowerCase();
-  
+
     // Check if the `name` and `search` match character by character
     for (let i = 0; i < searchLower.length; i++) {
       if (name[i] !== searchLower[i]) {
@@ -47,14 +47,13 @@ const Pokemon = () => {
     }
     return true;
   });
-  
-  
-  
-  
+
   if (loading) {
     return (
       <div className="w-full h-screen flex justify-center items-center bg-gray-200">
-        <h1 className="text-black font-extrabold text-lg md:text-5xl">Loading...</h1>
+        <h1 className="text-black font-extrabold text-lg md:text-5xl">
+          Loading...
+        </h1>
       </div>
     );
   } else {
@@ -69,14 +68,13 @@ const Pokemon = () => {
     } else {
       return (
         <main>
-          <nav className="bg-[#dc0a2d] p-4 px-8 shadow-md">
+          <nav className="bg-[#dc0a2d] p-4 pb-6 px-8 shadow-md">
             <div className="container mx-auto flex flex-col gap-5 ">
               {/* Logo */}
               <div className="flex items-center space-x-4">
-                <img src={logo} alt="Pokedex Logo" className="h-10 w-10" />
+                <img src={logo} alt="Pokedex Logo" className="h-8 w-8" />
                 <span className="text-2xl font-extrabold text-white ">
                   {"POKEMON CARDS"}
-                  <p className="text-sm">createdBy: ayushpatwal</p>
                 </span>
               </div>
 
@@ -99,12 +97,22 @@ const Pokemon = () => {
           </nav>
 
           <div className="w-full h-full ">
-            <ul className=" pt-4 px-2 md:pt-10 md:px-10 flex flex-wrap justify-center gap-4 md:gap-6 bg-gray-100">
-              {searchData.map((poke, i) => {
+            <ul className=" py-4 px-2 md:pt-10 md:px-10 flex flex-wrap justify-center gap-4 md:gap-6 bg-gray-100">
+              { searchData.map((poke, i) => {
                 return <PokemonCard key={i} poke={poke} />;
-              })}
+              })
+           }
             </ul>
           </div>
+          <footer>
+            <p className="w-full fixed bottom-0 text-center text-gray-900 bg-white text-sm">
+              {"�� Created By: Ayush Patwal. All rights reserved."}
+            <a
+            className="text-blue-700 font-bold cursor-pointer"
+            href="https://github.com/ayushpatwal011"> GitHub-Link 
+            </a>
+            </p>
+            </footer>
         </main>
       );
     }
